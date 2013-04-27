@@ -17,6 +17,13 @@ public class OperacionNumerica implements IEstadisticas {
         this.valoresNumericos = new double[cant];
     }
     
+    /**
+     * Constructor por default.
+     */
+    public OperacionNumerica() {
+        
+    }
+    
     public void asignaValoresDouble(){
         for(int i=0;i<this.valoresNumericos.length;i++){
             this.valoresNumericos[i]=Math.random();
