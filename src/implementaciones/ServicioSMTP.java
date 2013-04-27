@@ -24,7 +24,11 @@ public class ServicioSMTP implements IOperaciones {
     }
 
     public String enviarMensaje(String mensaje) {
-        return "Mensaje enviado al servidor SMTP " + this.nombreServidorSMTP;
+        return "Mensaje: " + mensaje + ", se ha enviado al servidor SMTP " + this.nombreServidorSMTP;
+    }
+    
+    public boolean conectarServidorSMTP(String serverName){
+        return serverName.equals("ZEUS");
     }
     
 }
