@@ -23,6 +23,10 @@ public class OperacionNumerica implements IEstadisticas {
         }
     }
     
+    /**
+     * Funcion que calcula el valor minimo del vector de la clase.
+     * @return El valor minimo.
+     */
     public double valorMinimo() {
         double menorValor = this.valoresNumericos[0];
         for (int i = 0; i < this.valoresNumericos.length; i++) {
