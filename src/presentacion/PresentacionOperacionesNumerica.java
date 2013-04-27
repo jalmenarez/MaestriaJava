@@ -1,7 +1,7 @@
 
 package presentacion;
 
-import implementaciones.OperacionNumerica;
+import implementaciones.OperacionesNumerica;
 
 /**
  *
@@ -14,7 +14,7 @@ public class PresentacionOperacionesNumerica {
      */
     public static void main(String[] args) {
         double[] arregloDobles = new double[10];
-        OperacionNumerica oOperNumerica = new OperacionNumerica();
+        OperacionesNumerica oOperNumerica = new OperacionesNumerica();
         
         oOperNumerica.setValoresNumericos(arregloDobles);
         oOperNumerica.asignaValoresDouble();
