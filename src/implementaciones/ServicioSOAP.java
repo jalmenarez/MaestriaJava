@@ -16,5 +16,9 @@ public class ServicioSOAP implements IOperaciones {
     public String enviarMensaje(String mensaje) {
         return "Mensaje enviado desde el servicio SOAP " + this.nombreServidorWS;
     }
+
+    public boolean conectarServidorWS(String serverName) {
+        return serverName.equals("BigBlue");
+    }
     
 }
