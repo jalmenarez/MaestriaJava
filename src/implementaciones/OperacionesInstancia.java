@@ -11,6 +11,14 @@ public class OperacionesInstancia implements IEstadisticas {
     @Setter
     private Accion[] valoresInstancia;
     
+    public OperacionesInstancia(int cant) {
+        this.valoresInstancia = new Accion[cant];
+    }
+
+    public OperacionesInstancia() {
+        
+    }
+    
     public void asignaValoresInstancia(){
         for (int i = 0; i < this.valoresInstancia.length; i++) {
             this.valoresInstancia[i]=new Accion(Math.random(),"Accion:"+i);
@@ -18,7 +26,12 @@ public class OperacionesInstancia implements IEstadisticas {
     }
     
     public double valorMinimo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double menorValor = this.valoresInstancia[0].getValorAccion();
+        for (int i = 0; i < this.valoresInstancia.length; i++) {
+            if(menorValor>this.valoresInstancia[i].getValorAccion())
+                menorValor = this.valoresInstancia[i].getValorAccion();
+        }
+        return menorValor;
     }
 
 }
