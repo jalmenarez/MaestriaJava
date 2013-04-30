@@ -26,7 +26,7 @@ public class PresentacionOperacionesInstancia {
         } catch (ExcepcionValorMinimo ex) {
             System.out.println(ex.getMessage());
         }finally{
-            
+            System.out.println("Se ejecuta siempre!!!");
         }
     }
 }
