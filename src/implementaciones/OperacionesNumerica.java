@@ -27,7 +27,7 @@ public class OperacionesNumerica implements IEstadisticas {
 
     public void setValoresNumericos(double[] valoresNumericos) throws ExcepcionLargoMinimoArray {
         if (valoresNumericos.length<5)
-            throw new ExcepcionLargoMinimoArray("double");
+            throw new ExcepcionLargoMinimoArray("double",5);
         
         this.valoresNumericos = valoresNumericos;
     }
