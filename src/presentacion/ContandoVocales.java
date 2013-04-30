@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package lenguaje;
+package presentacion;
 
 import java.lang.String;
 import java.util.ArrayList;

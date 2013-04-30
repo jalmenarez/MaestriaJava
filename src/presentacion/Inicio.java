@@ -3,7 +3,10 @@
  * and open the template in the editor.
  */
 
-package objetos;
+package presentacion;
+
+import objetos.Empleado;
+import objetos.Gerente;
 
 /**
  *

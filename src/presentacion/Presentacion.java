@@ -3,11 +3,12 @@
  * and open the template in the editor.
  */
 
-package objetos;
+package presentacion;
 
 import servicios.Validacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import objetos.Usuario;
 
 /**
  *
