@@ -50,7 +50,7 @@ public class OperacionesNumerica implements IEstadisticas {
         }
         
         if(menorValor<0.5)
-            throw new ExcepcionValorMinimo();
+            throw new ExcepcionValorMinimo("0.5");
         
         return menorValor;
     }
