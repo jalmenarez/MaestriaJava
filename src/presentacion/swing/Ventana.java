@@ -1,12 +1,8 @@
 package presentacion.swing;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import javax.swing.JFrame;
 
-public class Ventana extends JFrame implements WindowListener {
+public class Ventana extends JFrame {
     
     javax.swing.JButton jButton1;
     javax.swing.JButton jButton2;
@@ -30,46 +26,16 @@ public class Ventana extends JFrame implements WindowListener {
         getContentPane().add(jButton2);
         jButton2.setBounds(130, 70, 77, 26);
         
-        addWindowListener(this);
-              
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                   
         pack();
     }
     
-    public static void main(String args[]) {
-        
+    public static void main(String args[]) {       
         JFrame myWindow = new Ventana();
+        myWindow.addWindowListener(new presentacion.swing.listener.Window(myWindow));       
         myWindow.setSize(450,400);
-        myWindow.setVisible(true);
-        
+        myWindow.setVisible(true);      
     }
     
-    public void windowClosing(WindowEvent e) {
-        dispose();
-        System.exit(0);
-     }
-
-    public void windowOpened(WindowEvent e) {
-      
-    }
-
-    public void windowClosed(WindowEvent e) {
-        
-    }
-
-    public void windowIconified(WindowEvent e) {
-        
-    }
-
-    public void windowDeiconified(WindowEvent e) {
-      
-    }
-
-    public void windowActivated(WindowEvent e) {
-       
-    }
-
-    public void windowDeactivated(WindowEvent e) {
-        
-    }
-
 }
