@@ -1,11 +1,19 @@
 package presentacion.swing;
 
-public class Ventana extends javax.swing.JFrame {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.JFrame;
+
+public class Ventana extends JFrame implements WindowListener {
     
     javax.swing.JButton jButton1;
     javax.swing.JButton jButton2;
     
     public Ventana() {
+        
+        super();
         
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -21,13 +29,46 @@ public class Ventana extends javax.swing.JFrame {
         jButton2.setText("Boton 2");
         getContentPane().add(jButton2);
         jButton2.setBounds(130, 70, 77, 26);
+        
+        addWindowListener(this);
               
         pack();
     }
     
     public static void main(String args[]) {
         
-        new Ventana().setVisible(true);
+        JFrame myWindow = new Ventana();
+        myWindow.setSize(450,400);
+        myWindow.setVisible(true);
+        
+    }
+    
+    public void windowClosing(WindowEvent e) {
+        dispose();
+        System.exit(0);
+     }
+
+    public void windowOpened(WindowEvent e) {
+      
+    }
+
+    public void windowClosed(WindowEvent e) {
+        
+    }
+
+    public void windowIconified(WindowEvent e) {
+        
+    }
+
+    public void windowDeiconified(WindowEvent e) {
+      
+    }
+
+    public void windowActivated(WindowEvent e) {
+       
+    }
+
+    public void windowDeactivated(WindowEvent e) {
         
     }
 
