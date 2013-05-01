@@ -5,6 +5,11 @@
 package presentacion.swing;
 
 import entidades.Accion;
+import excepciones.ExcepcionLargoMinimoArray;
+import excepciones.ExcepcionValorMinimo;
+import implementaciones.OperacionesInstancia;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +18,8 @@ import entidades.Accion;
 public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
     
     private  Accion[] arregloAcciones;
+    private  OperacionesInstancia oPer;
+    private  int numeroAccionesCreadas=0;
     /**
      * Creates new form PresentacionJFrameOperacionInstancia
      */
@@ -52,6 +59,11 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         jLabel3.setText("Nombre de accion");
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Crear array");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -63,12 +75,18 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         jButton3.setText("Limpiar");
 
         jButton4.setText("Valor Minimo");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Terminar");
-
-        jLNumeroAccionesCreadas.setText("jLabel4");
-
-        jLValorMinimo.setText("jLabel5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +151,7 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
                     .addComponent(jButton5))
                 .addGap(18, 18, 18)
                 .addComponent(jLValorMinimo)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,7 +159,35 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.arregloAcciones = new Accion[Integer.parseInt(jTFNumeroAcciones.getText())];
+        this.oPer = new OperacionesInstancia();
+        try {
+        this.oPer.setValoresInstancia(this.arregloAcciones);
+        jButton2.setEnabled(false);
+        } catch (ExcepcionLargoMinimoArray ex) {
+        Logger.getLogger(PresentacionJFrameOperacionInstancia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.arregloAcciones[this.numeroAccionesCreadas] = new Accion(Double.parseDouble(jTFValorAccion.getText()),jTFNombreAccion.getText());
+        this.numeroAccionesCreadas++;
+        jLNumeroAccionesCreadas.setText(String.valueOf(this.numeroAccionesCreadas));
+        if(Integer.parseInt(jTFNumeroAcciones.getText()) <= this.numeroAccionesCreadas)
+            jButton1.setEnabled(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+        jLValorMinimo.setText(String.valueOf(this.oPer.valorMinimo()));
+        } catch (ExcepcionValorMinimo ex) {
+        Logger.getLogger(PresentacionJFrameOperacionInstancia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.dispose();
+        System.exit(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
