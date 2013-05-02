@@ -49,6 +49,8 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLNumeroAccionesCreadas = new javax.swing.JLabel();
         jLValorMinimo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLNumber = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +61,7 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         jLabel3.setText("Nombre de accion");
 
         jButton1.setText("Agregar");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -73,8 +76,15 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         });
 
         jButton3.setText("Limpiar");
+        jButton3.setEnabled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Valor Minimo");
+        jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -88,42 +98,50 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
             }
         });
 
+        jLNumeroAccionesCreadas.setText("0");
+
+        jLValorMinimo.setText("0");
+
+        jLabel4.setText("Valor Minimo");
+
+        jLNumber.setText("Numero de Acciones");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addComponent(jButton3)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(18, 18, 18)
                                 .addComponent(jButton4)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton5))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLNumeroAccionesCreadas)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTFNumeroAcciones, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                            .addComponent(jTFValorAccion)
-                                            .addComponent(jTFNombreAccion))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton1)
-                                            .addComponent(jButton2)))))))
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLValorMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLValorMinimo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLNumber))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLNumeroAccionesCreadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTFNumeroAcciones, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(jTFValorAccion)
+                            .addComponent(jTFNombreAccion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,15 +161,19 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
                     .addComponent(jTFNombreAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jLNumeroAccionesCreadas)
-                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLNumeroAccionesCreadas, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLNumber))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addGap(18, 18, 18)
-                .addComponent(jLValorMinimo)
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(jButton5)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLValorMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,6 +185,9 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         try {
         this.oPer.setValoresInstancia(this.arregloAcciones);
         jButton2.setEnabled(false);
+        jButton1.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton1.setEnabled(true);
         } catch (ExcepcionLargoMinimoArray ex) {
         Logger.getLogger(PresentacionJFrameOperacionInstancia.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -172,8 +197,10 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         this.arregloAcciones[this.numeroAccionesCreadas] = new Accion(Double.parseDouble(jTFValorAccion.getText()),jTFNombreAccion.getText());
         this.numeroAccionesCreadas++;
         jLNumeroAccionesCreadas.setText(String.valueOf(this.numeroAccionesCreadas));
-        if(Integer.parseInt(jTFNumeroAcciones.getText()) <= this.numeroAccionesCreadas)
+        if(Integer.parseInt(jTFNumeroAcciones.getText()) <= this.numeroAccionesCreadas){
             jButton1.setEnabled(false);
+            jButton4.setEnabled(true);
+        }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -188,6 +215,16 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jButton2.setEnabled(true);
+        this.arregloAcciones = null;
+        this.numeroAccionesCreadas = 0;
+        this.oPer = null;
+        jButton4.setEnabled(false);
+        jButton1.setEnabled(false);
+        jLNumeroAccionesCreadas.setText("0");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,11 +266,13 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLNumber;
     private javax.swing.JLabel jLNumeroAccionesCreadas;
     private javax.swing.JLabel jLValorMinimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTFNombreAccion;
     private javax.swing.JTextField jTFNumeroAcciones;
     private javax.swing.JTextField jTFValorAccion;
