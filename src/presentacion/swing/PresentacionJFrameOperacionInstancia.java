@@ -197,6 +197,8 @@ public class PresentacionJFrameOperacionInstancia extends javax.swing.JFrame {
         this.arregloAcciones[this.numeroAccionesCreadas] = new Accion(Double.parseDouble(jTFValorAccion.getText()),jTFNombreAccion.getText());
         this.numeroAccionesCreadas++;
         jLNumeroAccionesCreadas.setText(String.valueOf(this.numeroAccionesCreadas));
+        jTFValorAccion.setText("");
+        jTFNombreAccion.setText("");
         if(Integer.parseInt(jTFNumeroAcciones.getText()) <= this.numeroAccionesCreadas){
             jButton1.setEnabled(false);
             jButton4.setEnabled(true);
