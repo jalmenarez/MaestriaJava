@@ -115,7 +115,6 @@ public class PresentacionSwingAccionesArchivos extends javax.swing.JFrame {
         ServicioAccionesTokenizer oSAT = new ServicioAccionesTokenizer();
         oSAT.setNombreArchivo(jTextField1.getText());
         oSAT.setNumeroAcciones(Integer.parseInt(jTextField2.getText()));
-        
         if(oSAT.creaArrayAcciones()) {
          jLabel4.setText(String.valueOf(oSAT.calcularValorMinimo()));
         }        

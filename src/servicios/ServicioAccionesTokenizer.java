@@ -54,8 +54,7 @@ public class ServicioAccionesTokenizer {
         String na=null;
         int contador = 0;
         this.arrayAcciones = new Accion[this.numeroAcciones];
-        while(contador<this.numeroAcciones){
-           s=br.readLine();
+        while((s=br.readLine()) != null  && contador<this.numeroAcciones){
            StringTokenizer st = new StringTokenizer(s);
            while(st.hasMoreTokens()){
                va=st.nextToken();
