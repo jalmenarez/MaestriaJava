@@ -33,5 +33,13 @@ public class ServicioJDBC {
             Logger.getLogger(ServicioJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void desconectaBD(){
+        try {
+            this.conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJDBC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }
