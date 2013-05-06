@@ -5,14 +5,12 @@
 package implementaciones;
 
 import interfaces.IOperaciones;
-import lombok.Data;
 
 /**
  *
  * @author java
  */
 
-@Data
 public class ServicioSMTP implements IOperaciones {
     
     private String nombreServidorSMTP;
@@ -29,6 +27,10 @@ public class ServicioSMTP implements IOperaciones {
     
     public boolean conectarServidorSMTP(String serverName){
         return serverName.equals("ZEUS");
+    }
+
+    public String getNombreServidorSMTP() {
+        return this.nombreServidorSMTP;
     }
     
 }
