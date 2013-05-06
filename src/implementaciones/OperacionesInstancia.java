@@ -4,11 +4,9 @@ import entidades.Accion;
 import excepciones.ExcepcionLargoMinimoArray;
 import excepciones.ExcepcionValorMinimo;
 import interfaces.IEstadisticas;
-import lombok.Getter;
 
 public class OperacionesInstancia implements IEstadisticas {
     
-    @Getter 
     private Accion[] valoresInstancia;
     
     public OperacionesInstancia(int cant) {

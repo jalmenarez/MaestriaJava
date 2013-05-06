@@ -3,7 +3,6 @@ package implementaciones;
 import excepciones.ExcepcionLargoMinimoArray;
 import excepciones.ExcepcionValorMinimo;
 import interfaces.IEstadisticas;
-import lombok.Getter;
 
 /**
  * 
@@ -11,7 +10,6 @@ import lombok.Getter;
  */
 public class OperacionesNumerica implements IEstadisticas {
     
-    @Getter  
     private double[] valoresNumericos;
 
     public OperacionesNumerica(int cant) {

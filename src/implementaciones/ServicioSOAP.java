@@ -1,9 +1,7 @@
 package implementaciones;
 
 import interfaces.IOperaciones;
-import lombok.Data;
 
-@Data
 public class ServicioSOAP implements IOperaciones {
     private String nombreServidorWS;
     private String ipServidorWS;
@@ -19,6 +17,10 @@ public class ServicioSOAP implements IOperaciones {
 
     public boolean conectarServidorWS(String serverName) {
         return serverName.equals("BigBlue");
+    }
+
+    public String getNombreServidorWS() {
+        return this.nombreServidorWS;
     }
     
 }

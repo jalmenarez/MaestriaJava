@@ -1,8 +1,5 @@
 package entidades;
 
-import lombok.Data;
-
-@Data
 public class Accion {
     private double valorAccion;
     private String nombreAccion;
@@ -22,6 +19,14 @@ public class Accion {
     public Accion(double valorAccion, String nombreAccion) {
         this.valorAccion = valorAccion;
         this.nombreAccion = nombreAccion;
+    }
+
+    public double getValorAccion() {
+        return this.valorAccion;
+    }
+
+    public String getNombreAccion() {
+        return this.nombreAccion;
     }
     
 }
