@@ -19,7 +19,8 @@ public class ServicioJDBCFilms extends ServicioJDBC {
             String sql = String.format("INSERT INTO APP.FILMS VALUES(%d,'%s','%s')", 
                                        idFilm,nombreFilm,directorFilm);
             Statement pstAgregaFilm =  super.getConn().createStatement();
-            result = pstAgregaFilm.execute(sql);          
+            pstAgregaFilm.execute(sql);
+            result = true;
             pstAgregaFilm.close();
             return result; 
         } catch (SQLException ex) {
