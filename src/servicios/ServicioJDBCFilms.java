@@ -1,6 +1,6 @@
 package servicios;
 
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -25,6 +25,28 @@ public class ServicioJDBCFilms extends ServicioJDBC {
             Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
             return result;
         }
+    }
+    
+    public String[] getFilmByID(int idFilm){
+        String[] datosFilm=null;
+        try {
+            String sqlSeleccionaFilmPorID = 
+                   String.format("SELECT IDFILM,NOMBREFILM,DIRECTORFILM FROM APP.FILMS "
+                               + " WHERE IDFILM = %d ", 
+                                       idFilm);
+            Statement stSeleccionaFilmPorID = super.getConn().createStatement();
+            ResultSet rsFilm = stSeleccionaFilmPorID.executeQuery(sqlSeleccionaFilmPorID);
+            if(rsFilm.next()){   
+                datosFilm=new String[3];
+                datosFilm[0]=rsFilm.getString("IDFILM");
+                datosFilm[1]=rsFilm.getString("NOMBREFILM");
+                datosFilm[2]=rsFilm.getString("DIRECTORFILM");
+            }
+            rsFilm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return datosFilm;
     }
     
 }
