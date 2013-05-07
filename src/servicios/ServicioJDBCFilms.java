@@ -51,4 +51,21 @@ public class ServicioJDBCFilms extends ServicioJDBC {
         return oFilm;
     }
     
+    public boolean deleteFilmByID(int idFilm){
+        boolean result = false;
+        try {    
+            String sqlBorrarFilmPorID = 
+                       String.format("DELETE FROM APP.FILMS "
+                                   + " WHERE IDFILM = %d ", 
+                                           idFilm);
+            Statement pstDeleteFilm =  super.getConn().createStatement();
+                pstDeleteFilm.execute(sqlBorrarFilmPorID);
+                result = true;
+                pstDeleteFilm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
 }
