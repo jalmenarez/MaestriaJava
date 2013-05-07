@@ -19,6 +19,7 @@ public class PresentacionJDBCFilms {
         }
         Film oFilm = oSerJDBC.getFilmByID(3);
         System.out.println("Film 3: "+oFilm.toString());
+        oFilm=null;
         System.out.println("[All Films]");
         List<Film> films = oSerJDBC.getAllFilms();
         if(!films.isEmpty()){           
@@ -26,8 +27,10 @@ public class PresentacionJDBCFilms {
               System.out.println("Film "+i+": "+films.get(i).toString());  
             }
         }
+        films=null;
         //Desconecta de la bade de datos
         oSerJDBC.desconectaBD();
+        oSerJDBC=null;
     }
             
 
