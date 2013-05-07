@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import objetos.Film;
 
 public class ServicioJDBCFilms extends ServicioJDBC {
 
@@ -27,8 +28,8 @@ public class ServicioJDBCFilms extends ServicioJDBC {
         }
     }
     
-    public String[] getFilmByID(int idFilm){
-        String[] datosFilm=null;
+    public Film getFilmByID(int idFilm){
+        Film oFilm=new Film();
         try {
             String sqlSeleccionaFilmPorID = 
                    String.format("SELECT IDFILM,NOMBREFILM,DIRECTORFILM FROM APP.FILMS "
@@ -37,17 +38,16 @@ public class ServicioJDBCFilms extends ServicioJDBC {
             Statement stSeleccionaFilmPorID = super.getConn().createStatement();
             ResultSet rsFilm = stSeleccionaFilmPorID.executeQuery(sqlSeleccionaFilmPorID);
             if(rsFilm.next()){   
-                datosFilm=new String[3];
-                datosFilm[0]=rsFilm.getString("IDFILM");
-                datosFilm[1]=rsFilm.getString("NOMBREFILM");
-                datosFilm[2]=rsFilm.getString("DIRECTORFILM");
+                oFilm.setId(rsFilm.getLong("IDFILM"));
+                oFilm.setName(rsFilm.getString("NOMBREFILM"));
+                oFilm.setAutor(rsFilm.getString("DIRECTORFILM"));
             }
             rsFilm.close();
             stSeleccionaFilmPorID.close();
         } catch (SQLException ex) {
             Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return datosFilm;
+        return oFilm;
     }
     
 }
