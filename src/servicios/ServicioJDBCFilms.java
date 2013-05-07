@@ -3,6 +3,8 @@ package servicios;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import objetos.Film;
@@ -66,6 +68,28 @@ public class ServicioJDBCFilms extends ServicioJDBC {
             Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
+    }
+    
+    public List<Film> getAllFilms(){
+        List<Film> films = new ArrayList<Film>();
+        try { 
+            String sqlSeleccionaFilms = 
+                       String.format("SELECT IDFILM,NOMBREFILM,DIRECTORFILM FROM APP.FILMS ");
+                Statement stSeleccionaFilms = super.getConn().createStatement();
+                ResultSet rsFilms = stSeleccionaFilms.executeQuery(sqlSeleccionaFilms);
+                while(rsFilms.next()){  
+                    Film oFilm = new Film();
+                    oFilm.setId(rsFilms.getLong("IDFILM"));
+                    oFilm.setName(rsFilms.getString("NOMBREFILM"));
+                    oFilm.setAutor(rsFilms.getString("DIRECTORFILM"));
+                    films.add(oFilm);
+                }
+                rsFilms.close();
+                stSeleccionaFilms.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return films;
     }
     
 }
