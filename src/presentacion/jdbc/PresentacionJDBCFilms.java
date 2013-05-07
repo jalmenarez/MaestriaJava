@@ -1,5 +1,6 @@
 package presentacion.jdbc;
 
+import objetos.Film;
 import servicios.ServicioJDBCFilms;
 
 public class PresentacionJDBCFilms {
@@ -13,10 +14,8 @@ public class PresentacionJDBCFilms {
         }else{
          System.out.println("No se agregó el registro!");   
         }*/
-        String[] film = oSerJDBC.getFilmByID(1);
-        System.out.println("Film: "+film[0]);
-        System.out.println("Film Name: "+film[1]);
-        System.out.println("Film Autor: "+film[2]);      
+        Film oFilm = oSerJDBC.getFilmByID(1);
+        System.out.println("Film: "+oFilm.toString());     
         //Desconecta de la bade de datos
         oSerJDBC.desconectaBD();
     }
