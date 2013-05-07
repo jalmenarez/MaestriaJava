@@ -1,5 +1,6 @@
 package presentacion.jdbc;
 
+import java.util.List;
 import objetos.Film;
 import servicios.ServicioJDBCFilms;
 
@@ -17,7 +18,14 @@ public class PresentacionJDBCFilms {
             }
         }
         Film oFilm = oSerJDBC.getFilmByID(3);
-        System.out.println("Film: "+oFilm.toString());     
+        System.out.println("Film 3: "+oFilm.toString());
+        System.out.println("[All Films]");
+        List<Film> films = oSerJDBC.getAllFilms();
+        if(!films.isEmpty()){           
+             for (int i = 0; i < films.size(); i++) {   
+              System.out.println("Film "+i+": "+films.get(i).toString());  
+            }
+        }
         //Desconecta de la bade de datos
         oSerJDBC.desconectaBD();
     }
