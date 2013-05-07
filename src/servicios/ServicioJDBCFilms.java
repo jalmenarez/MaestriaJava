@@ -83,6 +83,7 @@ public class ServicioJDBCFilms extends ServicioJDBC {
                     oFilm.setName(rsFilms.getString("NOMBREFILM"));
                     oFilm.setAutor(rsFilms.getString("DIRECTORFILM"));
                     films.add(oFilm);
+                    oFilm=null;
                 }
                 rsFilms.close();
                 stSeleccionaFilms.close();
