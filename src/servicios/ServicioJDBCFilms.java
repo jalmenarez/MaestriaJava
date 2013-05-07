@@ -43,6 +43,7 @@ public class ServicioJDBCFilms extends ServicioJDBC {
                 datosFilm[2]=rsFilm.getString("DIRECTORFILM");
             }
             rsFilm.close();
+            stSeleccionaFilmPorID.close();
         } catch (SQLException ex) {
             Logger.getLogger(ServicioJDBCFilms.class.getName()).log(Level.SEVERE, null, ex);
         }
