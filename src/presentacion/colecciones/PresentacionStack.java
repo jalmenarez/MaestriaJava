@@ -27,9 +27,10 @@ public class PresentacionStack {
             Accion oA=enumAcciones.nextElement();
             System.out.println(oA.getNombreAccion()+"-----"+oA.getValorAccion());
         }
-        System.out.println(" Elementos del stack: "+stAcciones.toString());
-        System.out.println(" Elementos top: "+stAcciones.peek().toString());
-        System.out.println(" Sacar un elementos del stack: "+stAcciones.pop().toString());
-        System.out.println(" Elementos del stack despues del pop: "+stAcciones.toString());
+        System.out.println(" ");
+        System.out.println("Elementos del stack: "+stAcciones.toString());
+        System.out.println("Elementos top: "+stAcciones.peek().toString());
+        System.out.println("Sacar un elementos del stack: "+stAcciones.pop().toString());
+        System.out.println("Elementos del stack despues del pop: "+stAcciones.toString());
     }
 }
