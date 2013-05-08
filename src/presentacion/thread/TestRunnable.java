@@ -8,7 +8,7 @@ class TestThreadR implements Runnable{
 }
 
 public class TestRunnable {
-    public static void main(String[] args){
+     static public void main(String args[]){
         Thread hilo1=new Thread(new TestThreadR(),"Hilo 1");
         Thread hilo2=new Thread(new TestThreadR(),"Hilo 2");
         Thread hilo3=new Thread(new TestThreadR(),"Hilo 3");
