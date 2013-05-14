@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<juegos>
+    <juego lanzamiento="Enero 2012">
+        <nombre>Halo 4</nombre>
+        <consola>XBox</consola>
+    </juego>
+    <juego lanzamiento="Marzo 2010">
+        <nombre>Super Mario Bros</nombre>
+        <consola>Wii</consola>
+    </juego>
+    <juego lanzamiento="Diciembre 2011">
+        <nombre>FF XIII</nombre>
+        <consola>PS3</consola>
+    </juego>
+</juegos>
