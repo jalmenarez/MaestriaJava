@@ -35,18 +35,22 @@ public class ServicioStaxParserEscribeXML {
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         
         XMLEvent fin = eventFactory.createDTD("\n");
+        XMLEvent tab = eventFactory.createDTD("\t");
         StartDocument inicioDocumento = eventFactory.createStartDocument();
         eventWriter.add(inicioDocumento);
         StartElement elementoRoot = eventFactory.createStartElement("", "", "films");
+        eventWriter.add(fin);
         eventWriter.add(elementoRoot);
         eventWriter.add(fin);
         for(Film oFilm : films){
             StartElement elementoInicio = eventFactory.createStartElement("", "", "film");
+            eventWriter.add(tab);
             eventWriter.add(elementoInicio);
             eventWriter.add(fin);
             creaNodo(eventWriter,"name",oFilm.getName());
             creaNodo(eventWriter,"autor",oFilm.getAutor());
-            eventWriter.add(eventFactory.createEndElement("", "","film"));
+            eventWriter.add(tab);
+            eventWriter.add(eventFactory.createEndElement("", "","film"));           
             eventWriter.add(fin);
         }
         eventWriter.add(eventFactory.createEndElement("", "","films"));
@@ -82,12 +86,13 @@ public class ServicioStaxParserEscribeXML {
         eventWriter.close();
     }
     
-    private void creaNodo(XMLEventWriter eventWriter,String nombre,String valor) throws XMLStreamException{
+     static void creaNodo(XMLEventWriter eventWriter,String nombre,String valor) throws XMLStreamException{
         XMLEventFactory eventFactory = XMLEventFactory.newInstance();
         XMLEvent fin = eventFactory.createDTD("\n");
         XMLEvent tab = eventFactory.createDTD("\t");
         
         StartElement elementoInicio = eventFactory.createStartElement("", "", nombre);
+        eventWriter.add(tab);
         eventWriter.add(tab);
         eventWriter.add(elementoInicio);
         

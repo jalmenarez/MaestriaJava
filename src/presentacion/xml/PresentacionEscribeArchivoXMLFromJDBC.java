@@ -30,6 +30,7 @@ public class PresentacionEscribeArchivoXMLFromJDBC {
             ServicioStaxParserEscribeXML oSerXML=new ServicioStaxParserEscribeXML();      
             oSerXML.setArchivoFilms(".\\archivos\\listaFilms.xml");
             oSerXML.grabarArchivo(films);
+            oSerJDBC.crearArhivoXML(".\\archivos\\film01.xml");
             films=null;
             //Desconecta de la bade de datos
             oSerJDBC.desconectaBD();
