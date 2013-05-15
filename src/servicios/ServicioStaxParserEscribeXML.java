@@ -2,6 +2,7 @@ package servicios;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.List;
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLOutputFactory;
@@ -11,12 +12,47 @@ import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import objetos.Film;
 
 public class ServicioStaxParserEscribeXML {
     private String archivoJuegos;
+    private String archivoFilms;
     
     public void setArchivoJuegos(String archivoJuegos){
         this.archivoJuegos=archivoJuegos;
+    }
+    
+    public void setArchivoFilms(String archivoFilms){
+        this.archivoFilms=archivoFilms;
+    }
+    
+    public void grabarArchivo(List<Film> films) throws XMLStreamException, FileNotFoundException{
+        XMLOutputFactory outputFactory=XMLOutputFactory.newInstance();
+        //Crear un XMLEventWriter
+        XMLEventWriter eventWriter = outputFactory.createXMLEventWriter(
+                new FileOutputStream(archivoFilms));
+        
+        XMLEventFactory eventFactory = XMLEventFactory.newInstance();
+        
+        XMLEvent fin = eventFactory.createDTD("\n");
+        StartDocument inicioDocumento = eventFactory.createStartDocument();
+        eventWriter.add(inicioDocumento);
+        StartElement elementoRoot = eventFactory.createStartElement("", "", "films");
+        eventWriter.add(elementoRoot);
+        eventWriter.add(fin);
+        for(Film oFilm : films){
+            StartElement elementoInicio = eventFactory.createStartElement("", "", "film");
+            eventWriter.add(elementoInicio);
+            eventWriter.add(fin);
+            creaNodo(eventWriter,"name",oFilm.getName());
+            creaNodo(eventWriter,"autor",oFilm.getAutor());
+            eventWriter.add(eventFactory.createEndElement("", "","film"));
+            eventWriter.add(fin);
+        }
+        eventWriter.add(eventFactory.createEndElement("", "","films"));
+        eventWriter.add(fin);
+        eventWriter.add(eventFactory.createEndDocument());
+        eventWriter.close();
     }
     
     public void grabarArchivo() throws XMLStreamException, FileNotFoundException{
